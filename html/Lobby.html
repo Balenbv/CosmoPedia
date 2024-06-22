@@ -1,97 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Css\Lobby.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/Css/Lobby.css" rel="stylesheet" />
+    <title>CosmoPedia</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="Css\Lobby.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link href="/Css/Lobby.css" rel="stylesheet" />
-  <title>CosmoPedia</title>
-</head>
+  <body>
+    <header id="encabezado">
+      <h1>CosmoPedia</h1>
+      <p>
+        CosmoPedia es una página web diseñada para ser tu guía personal en un
+        apasionante viaje a través del universo. Combina una experiencia
+        visualmente impactante con información completa y accesible sobre los
+        astros que lo componen, convirtiéndose en un recurso invaluable para
+        estudiantes, aficionados y cualquier persona con curiosidad por el
+        cosmos
+      </p>
+    </header>
 
-<body>
-  <header id="encabezado">
-    <h1>CosmoPedia</h1>
-    <p>
-      CosmoPedia es una página web diseñada para ser tu guía personal en un
-      apasionante viaje a través del universo. Combina una experiencia
-      visualmente impactante con información completa y accesible sobre los
-      astros que lo componen, convirtiéndose en un recurso invaluable para
-      estudiantes, aficionados y cualquier persona con curiosidad por el
-      cosmos
-    </p>
-  </header>
-
-  <div class="container">
-    <nav id="listaIzquierda">
-      <ul>
-        <li>
-          Mapa interactivo: <br />
-          <iframe
-            src="https://www.google.com/sky/#latitude=64.74626965314087&longitude=-44.32634998960328&zoom=5&Spitzer=0.00&ChandraXO=0.00&Galex=0.00&IRAS=0.00&WMAP=0.00&Cassini=0.00&slide=1&mI=-1&oI=-1"
-            frameborder="0"></iframe>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/valentin_villarb/">Datos de contacto</a>
-        </li>
-        <li><a href="#registroContainer">registrarse</a></li>
-      </ul>
-    </nav>
-    <div id="imagenes">
-      <a href="#"> <video> <source src="/recursos/agujero negro.mp4" type="video/mp4"> </video></a>
-      <a href="#"><img src="/recursos/sol imagen.png" alt="imagen del sol" /></a>
-      <a href="#"><img src="/recursos/estrella neutrones.jpg" alt="imagen de una estrella de neutrones" /></a>
-      <a href="#"><img src="/recursos/Teegarden b.png" alt="imagen de un exoplaneta Teegarden b" /></a>
-      <a href="#"><img src="/recursos/Enana blanca.png" alt="imagen de una Enana blanca" /></a>
+    <div class="container">
+      <nav id="listaIzquierda">
+        <ul>
+          <li>
+            Mapa interactivo: <br />
+            <iframe
+              src="https://www.google.com/sky/#latitude=64.74626965314087&longitude=-44.32634998960328&zoom=5&Spitzer=0.00&ChandraXO=0.00&Galex=0.00&IRAS=0.00&WMAP=0.00&Cassini=0.00&slide=1&mI=-1&oI=-1"
+              frameborder="0"
+            ></iframe>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/valentin_villarb/"
+              >Datos de contacto</a
+            >
+          </li>
+          <li><a href="#registroContainer">registrarse</a></li>
+        </ul>
+      </nav>
+      <div id="imagenes">
+        <a href="#">
+          <video>
+            <source src="/recursos/agujero negro.mp4" type="video/mp4" /></video
+        ></a>
+        <a href="#"
+          ><img src="/recursos/sol imagen.png" alt="imagen del sol"
+        /></a>
+        <a href="#"
+          ><img
+            src="/recursos/estrella neutrones.jpg"
+            alt="imagen de una estrella de neutrones"
+        /></a>
+        <a href="#"
+          ><img
+            src="/recursos/Teegarden b.png"
+            alt="imagen de un exoplaneta Teegarden b"
+        /></a>
+        <a href="#"
+          ><img
+            src="/recursos/Enana blanca.png"
+            alt="imagen de una Enana blanca"
+        /></a>
+      </div>
     </div>
-  </div>
-  <div id="registroContainer">
-    <div id="registro">
-      <h1>Registrarse</h1>
-      <form action="">
-      <table>
-        <tr>
-          <td>nombre</td>
-          <td><input type="text" maxlength="30" /></td>
-        </tr>
+    <div id="registroContainer">
+      <div id="registro">
+        <h1>Registrarse</h1>
+        <form action="">
+          <table>
+            <tr>
+              <td>nombre</td>
+              <td><input type="text" maxlength="30" /></td>
+            </tr>
 
-        <tr>
-          <td>apellido</td>
-          <td><input type="text" maxlength="30" /></td>
-        </tr>
+            <tr>
+              <td>apellido</td>
+              <td><input type="text" maxlength="30" /></td>
+            </tr>
 
-        <tr>
-          <td>correo:</td>
-          <td><input type="text" maxlength="100" /></td>
-        </tr>
+            <tr>
+              <td>correo:</td>
+              <td><input type="text" maxlength="100" /></td>
+            </tr>
 
-        <tr>
-          <td>edad</td>
-          <td><input type="text" maxlength="3" /></td>
-        </tr>
+            <tr>
+              <td>edad</td>
+              <td><input type="text" maxlength="3" /></td>
+            </tr>
 
-        <tr>
-          <td>genero</td>
-          <td>
-            <select>
-              <option value="">hombre</option>
-              <option value="">mujer</option>
-            </select>
-          </td>
-        </tr>
+            <tr>
+              <td>genero</td>
+              <td>
+                <select>
+                  <option value="">hombre</option>
+                  <option value="">mujer</option>
+                </select>
+              </td>
+            </tr>
 
-        <tr>
-          <td>DNI</td>
-          <td><input type="text" maxlength="8" /></td>
-        </tr>
-      </table>
-    </form>
+            <tr>
+              <td>DNI</td>
+              <td><input type="text" maxlength="8" /></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <iframe src="/flappyJS/index.html" frameborder="0"></iframe>
     </div>
-    <iframe src="/flappyJS/index.html" frameborder="0"></iframe>
-  </div>
-</body>
-
+  </body>
 </html>

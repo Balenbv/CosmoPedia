@@ -28,17 +28,19 @@ body{
     align-items: stretch;
     margin: auto;
     margin-top: 80px;
-    height: auto;
+    height: 270px;
 }
 
 #listaIzquierda {
     display: inline-block;
     margin: 20px;
     flex: 0 0 auto;
+    height: 535px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     width: 400px;
     position: relative;
+    
 }
 
 #listaIzquierda li {
@@ -74,6 +76,7 @@ body{
     position: relative;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
+    
 }
 
 #imagenes a{
@@ -104,6 +107,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 100px;
 }
 
 #registro{
@@ -115,6 +119,7 @@ body{
     background-color: rgba(0, 0, 0, 0.5);
     width: 50%;
     margin-left: 25%;
+    
 }
 
 #registro h1{
@@ -150,13 +155,15 @@ body{
     font-family: 'Orbitron', sans-serif;
     font-size: 30px;
     text-align: center;
+    
 }
 
 iframe{
     position: absolute;
     right: 0;
-    height: 80%;
+    height: 660px;
     width: 380px;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 60px;
 }
