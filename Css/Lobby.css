@@ -1,67 +1,67 @@
-html{
+html {
     scroll-behavior: smooth;
     background-image: url("/recursos/fondo.jpg");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-attachment: fixed;
 }
 
-body{
-    background-image: url("/recursos/fondo.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-attachment: fixed;
+body {
     height: auto;
     font-family: 'Orbitron', sans-serif;
     color: rgb(232, 212, 232);
-}
-
-
-#encabezado{
-    text-align: center;
-    position: relative;
 }
 
 .container {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    margin: auto;
-    margin-top: 80px;
-    height: 270px;
+    margin: 80px auto 400px;
+    height: 328px;
 }
 
 #listaIzquierda {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin: 20px;
     flex: 0 0 auto;
-    height: 535px;
+    height: 650px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    width: 400px;
     position: relative;
-    
+    overflow: hidden;
+    width: 20%;
 }
 
 #listaIzquierda li {
     margin: 20px;
-}
-
-
-#listaIzquierda li:hover{
     transition: transform 0.5s ease-in-out;
-    transform: scale(1.2);
-    
 }
 
-#listaIzquierda li:hover iframe{
-    transition: transform 0.5s ease-in-out;
-    transform: scale(1.3);
-}
-
-#listaIzquierda li iframe{
+#listaIzquierda li iframe {
     width: 90%;
     height: 480px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    transition: transform 0.3s ease;
+    transform: scale(1);
+}
+
+#listaIzquierda > ul {
+    margin-bottom: 450px;
+}
+
+#listaIzquierda > div {
+    margin-top: 10px;
+}
+
+#listaIzquierda li:hover {
+    transform: scale(1.2);
+}
+
+#listaIzquierda li:hover iframe {
+    transform: scale(1);
 }
 
 #imagenes {
@@ -69,68 +69,54 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
-    height: 200%; 
-    margin: auto;
-    margin-top: 1%;
-    margin-right: 2%;
+    height: 200%;
+    margin: 1% auto 0;
     position: relative;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
-    
 }
 
-#imagenes a{
+#imagenes a {
     display: inline-block;
-    width: 30%; /* Reducir el ancho para tener en cuenta el margen */
+    width: 30%;
     margin: 1%;
-    
 }
 
-#imagenes a:hover img {
+#imagenes a:hover img,
+#imagenes a:hover video {
     transform: scale(1.45);
 }
 
-#imagenes a:hover video{
-    transform: scale(1.45);
-
-}
-
-#imagenes img, video{
+#imagenes img,
+#imagenes video {
     display: inline-block;
     width: 60%;
     margin: 20px;
     transition: transform 0.3s ease-in-out;
 }
 
-#registroContainer{
-    margin-bottom: -100px;
+#registroContainer {
+    margin-bottom: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 100px;
 }
 
-#registro{
-    margin: auto;
-    margin-top: 200px;
-    margin-bottom: 200px;
+#registro {
+    margin: 200px auto;
     border: 1px solid white;
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     width: 50%;
-    margin-left: 25%;
-    
 }
 
-#registro h1{
+#registro h1 {
     color: white;
     text-align: center;
-    position: block;
-    width: 100%;
-    margin: auto;
 }
 
-#registro table{
+#registro table {
     margin: auto;
     font-size: 30px;
     height: 600px;
@@ -138,27 +124,19 @@ body{
     text-align: center;
 }
 
-#registro table tr td{
-    width: 50%;
-    margin: auto;
-}
-
-
-
-#registro input,#registro select {
+#registro input,
+#registro select {
     border-radius: 10px;
     border: 1px solid white;
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
     height: 40px;
     width: 300px;
-    font-family: 'Orbitron', sans-serif;
     font-size: 30px;
     text-align: center;
-    
 }
 
-iframe{
+iframe {
     position: absolute;
     right: 0;
     height: 660px;
