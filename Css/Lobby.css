@@ -6,6 +6,10 @@ html {
     background-attachment: fixed;
 }
 
+#encabezado{
+    text-align: center;
+}
+
 body {
     height: auto;
     font-family: 'Orbitron', sans-serif;
@@ -76,14 +80,19 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+
 #imagenes a {
     display: inline-block;
     width: 30%;
     margin: 1%;
 }
 
-#imagenes a:hover img,
-#imagenes a:hover video {
+#imagenes a video{
+    box-shadow: 2px 2px 4px rgba(60, 0, 0, 3), 0 0 10px rgba(75, 0, 130, 0.8);
+}
+
+#imagenes img:hover,
+#imagenes video:hover {
     transform: scale(1.45);
 }
 
