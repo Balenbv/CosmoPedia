@@ -24,16 +24,17 @@
       cosmos
     </p>
   </header>
-  X
 
   <div class="container">
     <nav id="listaIzquierda">
       <ul>
         <li>
-          Mapa interactivo: <br />
+          <div class="containerIframe">
+            <p>Mapa interactivo</p>
           <iframe
             src="https://www.google.com/sky/#latitude=64.74626965314087&longitude=-44.32634998960328&zoom=5&Spitzer=0.00&ChandraXO=0.00&Galex=0.00&IRAS=0.00&WMAP=0.00&Cassini=0.00&slide=1&mI=-1&oI=-1"
             frameborder="0"></iframe>
+          </div>
         </li>
       </ul>
       <div>
@@ -47,7 +48,7 @@
     </nav>
     <div id="imagenes">
       <a href="/html/pagAgujeroNegro.html">
-        <video onmouseover="agujeroNegro(1)" onmouseleave="agujero(0)" id="videoAgujeroNegro">
+        <video onmouseover="agujeroNegro(1)" onmouseleave="agujeroNegro(0)" id="videoAgujeroNegro">
           <source src="/recursos/agujero negro.mp4" type="video/mp4" />
         </video>
       </a>
@@ -59,19 +60,16 @@
         </video>
       </a>
 
-
       <a href="/html/pagEstrellaNeutrones.html"><video onmouseover="estrellaNeutron(1)"
           onmouseleave="estrellaNeutron(0)" id="videoEstrellaNeutron">
           <source src="/recursos/estrellaNeutrones.mp4">
-        </video></a>
-
+        </video></a>  
 
       <a href="/html/pagTeegarden.html">
         <video onmouseover="teegardenb(1)" onmouseleave="teegardenb(0)" id="videoTeegardenb">
           <source src="/recursos/teegardenb.mp4">
         </video>
       </a>
-
 
       <a href="/html/pagEnanaBlanca.html"><video onmouseover="enanaBlanca(1)" onmouseleave="enanaBlanca(0)"
           id="videoEnanaBlanca">
@@ -81,44 +79,51 @@
   </div>
   <div id="registroContainer">
     <div id="registro">
-      <h1>Registrarse</h1>
-      <form action="">
+
+      <form>
+        <h1>Registrarse</h1> 
         <table>
           <tr>
-            <td>nombre</td>
-            <td><input type="text" maxlength="30" /></td>
+            <td>Nombre</td>
+            <td><input type="text" maxlength="30" id="nombre"/></td>
           </tr>
 
           <tr>
-            <td>apellido</td>
-            <td><input type="text" maxlength="30" /></td>
+            <td>Apellido</td>
+            <td><input type="text" maxlength="30" id="apellido"/></td>
           </tr>
 
           <tr>
-            <td>correo:</td>
-            <td><input type="text" maxlength="100" /></td>
+            <td>Correo</td>
+            <td><input type="text" maxlength="100" id="email"/></td>
           </tr>
 
           <tr>
-            <td>edad</td>
+            <td>Edad</td>
             <td><input type="text" maxlength="3" /></td>
           </tr>
 
           <tr>
-            <td>genero</td>
+            <td>Genero</td>
             <td>
-              <select>
-                <option value="">hombre</option>
-                <option value="">mujer</option>
+              <select id="genero">
+                <option value="hombre">hombre</option>  
+                <option value="mujer">mujer</option>
               </select>
             </td>
           </tr>
 
           <tr>
             <td>DNI</td>
-            <td><input type="text" maxlength="8" /></td>
+            <td><input type="text" maxlength="8" id="dni"/></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="submit" onclick="validar()">
+            </td>
           </tr>
         </table>
+        
       </form>
     </div>
     <iframe src="/flappyJS/index.html" frameborder="0"></iframe>

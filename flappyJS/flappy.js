@@ -104,11 +104,12 @@ function update() {
     }
 
     //score
-    context.fillStyle = "white";
-    context.font="45px sans-serif";
+    context.fillStyle = "green"; 
+    context.font="45px Orbitron";
     context.fillText(score, 5, 45);
 
     if (gameOver) {
+        context.fillStyle = "red";
         context.fillText("PERDISTE", 5, 90);
     }
 }

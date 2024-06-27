@@ -4,16 +4,24 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    font-family: 'Orbitron', sans-serif;
+    color: rgb(232, 212, 232);
 }
 
 #encabezado{
     text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+#encabezado p{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 body {
     height: auto;
-    font-family: 'Orbitron', sans-serif;
-    color: rgb(232, 212, 232);
 }
 
 .container {
@@ -35,6 +43,9 @@ body {
     position: relative;
     overflow: hidden;
     width: 20%;
+    box-shadow: 2px 2px 4px rgb(1, 6, 69), 0 0 10px rgb(1, 6, 69);
+    transition: box-shadow 0.3s ease-in-out;
+
 }
 
 #listaIzquierda li {
@@ -49,7 +60,6 @@ body {
     top: 10%;
     right: 0;
     transition: transform 0.3s ease;
-    transform: scale(1);
 }
 
 #listaIzquierda > ul {
@@ -64,8 +74,11 @@ body {
     transform: scale(1.2);
 }
 
-#listaIzquierda li:hover iframe {
-    transform: scale(1);
+#listaIzquierda li .containerIframe:hover{
+    transform: scale(1.7);
+    position: absolute;
+    bottom: 210px;
+    width: 100%;
 }
 
 #imagenes {
@@ -110,6 +123,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 100px;
+    
 }
 
 #registro {
@@ -118,7 +132,41 @@ body {
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     width: 50%;
+    position: relative;
+    box-shadow: 2px 2px 4px rgba(60, 0, 0, 3), 0 0 10px rgba(75, 0, 130, 0.8);
 }
+
+#registro input{
+    font-family: 'Orbitron', sans-serif;
+}
+
+#registro input:hover,
+#registro select:hover,
+#registro select:focus,
+#registro button:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(255, 255, 255);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#registro button {
+    border-radius: 10px;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    height: 40px;
+    width: 300px;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    font-family: 'Orbitron', sans-serif;
+}
+
 
 #registro h1 {
     color: white;
