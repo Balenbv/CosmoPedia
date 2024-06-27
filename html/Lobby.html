@@ -80,33 +80,33 @@
   <div id="registroContainer">
     <div id="registro">
 
-      <form>
+      <form onsubmit="return validar(event)">
         <h1>Registrarse</h1> 
         <table>
           <tr>
             <td>Nombre</td>
-            <td><input type="text" maxlength="30" id="nombre"/></td>
+            <td><input type="text" maxlength="30" id="nombre" required/></td>
           </tr>
 
           <tr>
             <td>Apellido</td>
-            <td><input type="text" maxlength="30" id="apellido"/></td>
+            <td><input type="text" maxlength="30" id="apellido" required/></td>
           </tr>
 
           <tr>
             <td>Correo</td>
-            <td><input type="text" maxlength="100" id="email"/></td>
+            <td><input type="text" maxlength="100" id="email" required/></td>
           </tr>
 
           <tr>
             <td>Edad</td>
-            <td><input type="text" maxlength="3" /></td>
+            <td><input type="text" maxlength="3" id="edad" required/></td>
           </tr>
 
           <tr>
             <td>Genero</td>
             <td>
-              <select id="genero">
+              <select id="genero" required>
                 <option value="hombre">hombre</option>  
                 <option value="mujer">mujer</option>
               </select>
@@ -115,11 +115,11 @@
 
           <tr>
             <td>DNI</td>
-            <td><input type="text" maxlength="8" id="dni"/></td>
+            <td><input type="text" maxlength="8" id="dni" required/></td>
           </tr>
           <tr>
             <td colspan="2">
-              <input type="submit" onclick="validar()">
+              <input type="submit" value="enviar">
             </td>
           </tr>
         </table>

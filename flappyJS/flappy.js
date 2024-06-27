@@ -1,169 +1,164 @@
+//tablero
+let tablero;
+let anchoTablero = 360;
+let altoTablero = 640;
+let contexto;
 
-//board
-let board;
-let boardWidth = 360;
-let boardHeight = 640;
-let context;
+//nave
+let anchoNave = 34; //relación ancho/alto = 408/228 = 17/12
+let altoNave = 24;
+let pos_X_Nave = anchoTablero/8;
+let pos_Y_Nave = altoTablero/2;
+let imgNave;
 
-//bird
-let birdWidth = 34; //width/height ratio = 408/228 = 17/12
-let birdHeight = 24;
-let birdX = boardWidth/8;
-let birdY = boardHeight/2;
-let birdImg;
-
-let bird = {
-    x : birdX,
-    y : birdY,
-    width : birdWidth,
-    height : birdHeight
+let nave = {
+    x : pos_X_Nave,
+    y : pos_Y_Nave,
+    ancho : anchoNave,
+    alto : altoNave
 }
 
-//pipes
-let pipeArray = [];
-let pipeWidth = 64; //width/height ratio = 384/3072 = 1/8
-let pipeHeight = 512;
-let pipeX = boardWidth;
-let pipeY = 0;
+//tubos
+let arregloTubos = [];
+let anchoTubo = 64; //relación ancho/alto = 384/3072 = 1/8
+let altoTubo = 512;
+let posXTubo = anchoTablero;
+let posYTubo = 0;
 
-let topPipeImg;
-let bottomPipeImg;
+let imgTuboSuperior;
+let imgTuboInferior;
 
-//physics
-let velocityX = -2; //pipes moving left speed
-let velocityY = 0; //bird jump speed
-let gravity = 0.4;
+//física
+let velocidadX = -2; //velocidad de movimiento de los tubos hacia la izquierda
+let velocidadY = 0; //velocidad de salto de la nave
+let gravedad = 0.4;
 
-let gameOver = false;
-let score = 0;
+let finJuego = false;
+let puntaje = 0;
 
 window.onload = function() {
-    board = document.getElementById("board");
-    board.height = boardHeight;
-    board.width = boardWidth;
-    context = board.getContext("2d"); //used for drawing on the board
+    tablero = document.getElementById("board");
+    tablero.height = altoTablero;
+    tablero.width = anchoTablero;
+    contexto = tablero.getContext("2d"); //se utiliza para dibujar en el tablero
 
-    //draw flappy bird
-    // context.fillStyle = "green";
-    // context.fillRect(bird.x, bird.y, bird.width, bird.height);
-
-    //load images
-    birdImg = new Image();
-    birdImg.src = "./nave.png";
-    birdImg.onload = function() {
-        context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+    //cargar imágenes
+    imgNave = new Image();
+    imgNave.src = "./nave.png";
+    imgNave.onload = function() {
+        contexto.drawImage(imgNave, nave.x, nave.y, nave.ancho, nave.alto);
     }
 
-    topPipeImg = new Image();
-    topPipeImg.src = "./tuboSuperior.png";
+    imgTuboSuperior = new Image();
+    imgTuboSuperior.src = "./tuboSuperior.png";
 
-    bottomPipeImg = new Image();
-    bottomPipeImg.src = "./tuboInferior.png";
+    imgTuboInferior = new Image();
+    imgTuboInferior.src = "./tuboInferior.png";
 
-    requestAnimationFrame(update);
-    setInterval(placePipes, 1500); //every 1.5 seconds
-    document.addEventListener("keydown", moveBird);
+    requestAnimationFrame(actualizar);
+    setInterval(colocarTubos, 1500); //cada 1.5 segundos
+    document.addEventListener("keydown", moverNave);
 }
 
-function update() {
-    requestAnimationFrame(update);
-    if (gameOver) {
+function actualizar() {
+    requestAnimationFrame(actualizar);
+    if (finJuego) {
         return;
     }
-    context.clearRect(0, 0, board.width, board.height);
+    contexto.clearRect(0, 0, tablero.width, tablero.height);
 
-    //bird
-    velocityY += gravity;
-    // bird.y += velocityY;
-    bird.y = Math.max(bird.y + velocityY, 0); //apply gravity to current bird.y, limit the bird.y to top of the canvas
-    context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+    //nave
+    velocidadY += gravedad;
+    // nave.y += velocidadY;
+    nave.y = Math.max(nave.y + velocidadY, 0); //aplicar gravedad a la posición actual de nave.y, limitar nave.y a la parte superior del lienzo
+    contexto.drawImage(imgNave, nave.x, nave.y, nave.ancho, nave.alto);
 
-    if (bird.y > board.height) {
-        gameOver = true;
+    if (nave.y > tablero.height) {
+        finJuego = true;
     }
 
-    //pipes
-    for (let i = 0; i < pipeArray.length; i++) {
-        let pipe = pipeArray[i];
-        pipe.x += velocityX;
-        context.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height);
+    //tubos
+    for (let i = 0; i < arregloTubos.length; i++) {
+        let tubo = arregloTubos[i];
+        tubo.x += velocidadX;
+        contexto.drawImage(tubo.img, tubo.x, tubo.y, tubo.ancho, tubo.alto);
 
-        if (!pipe.passed && bird.x > pipe.x + pipe.width) {
-            score += 0.5; //0.5 because there are 2 pipes! so 0.5*2 = 1, 1 for each set of pipes
-            pipe.passed = true;
+        if (!tubo.pasado && nave.x > tubo.x + tubo.ancho) {
+            puntaje += 0.5; //0.5 porque ¡hay 2 tubos! así que 0.5*2 = 1, 1 por cada par de tubos
+            tubo.pasado = true;
         }
 
-        if (detectCollision(bird, pipe)) {
-            gameOver = true;
+        if (detectarColision(nave, tubo)) {
+            finJuego = true;
         }
     }
 
-    //clear pipes
-    while (pipeArray.length > 0 && pipeArray[0].x < -pipeWidth) {
-        pipeArray.shift(); //removes first element from the array
+    //limpiar tubos
+    while (arregloTubos.length > 0 && arregloTubos[0].x < -anchoTubo) {
+        arregloTubos.shift(); //elimina el primer elemento del arreglo
     }
 
-    //score
-    context.fillStyle = "green"; 
-    context.font="45px Orbitron";
-    context.fillText(score, 5, 45);
+    //puntaje
+    contexto.fillStyle = "green"; 
+    contexto.font="45px Orbitron";
+    contexto.fillText(puntaje, 5, 45);
 
-    if (gameOver) {
-        context.fillStyle = "red";
-        context.fillText("PERDISTE", 5, 90);
+    if (finJuego) {
+        contexto.fillStyle = "red";
+        contexto.fillText("PERDISTE", 5, 90);
     }
 }
 
-function placePipes() {
-    if (gameOver) {
+function colocarTubos() {
+    if (finJuego) {
         return;
     }
 
-    //(0-1) * pipeHeight/2.
-    // 0 -> -128 (pipeHeight/4)
-    // 1 -> -128 - 256 (pipeHeight/4 - pipeHeight/2) = -3/4 pipeHeight
-    let randomPipeY = pipeY - pipeHeight/4 - Math.random()*(pipeHeight/2);
-    let openingSpace = board.height/4;
+    //(0-1) * altoTubo/2.
+    // 0 -> -128 (altoTubo/4)
+    // 1 -> -128 - 256 (altoTubo/4 - altoTubo/2) = -3/4 altoTubo
+    let posYTuboAleatoria = posYTubo - altoTubo/4 - Math.random()*(altoTubo/2);
+    let espacioApertura = tablero.height/4;
 
-    let topPipe = {
-        img : topPipeImg,
-        x : pipeX,
-        y : randomPipeY,
-        width : pipeWidth,
-        height : pipeHeight,
-        passed : false
+    let tuboSuperior = {
+        img : imgTuboSuperior,
+        x : posXTubo,
+        y : posYTuboAleatoria,
+        ancho : anchoTubo,
+        alto : altoTubo,
+        pasado : false
     }
-    pipeArray.push(topPipe);
+    arregloTubos.push(tuboSuperior);
 
-    let bottomPipe = {
-        img : bottomPipeImg,
-        x : pipeX,
-        y : randomPipeY + pipeHeight + openingSpace,
-        width : pipeWidth,
-        height : pipeHeight,
-        passed : false
+    let tuboInferior = {
+        img : imgTuboInferior,
+        x : posXTubo,
+        y : posYTuboAleatoria + altoTubo + espacioApertura,
+        ancho : anchoTubo,
+        alto : altoTubo,
+        pasado : false
     }
-    pipeArray.push(bottomPipe);
+    arregloTubos.push(tuboInferior);
 }
 
-function moveBird(e) {
+function moverNave(e) {
     if (e.code == "Space" || e.code == "ArrowUp" || e.code == "KeyX") {
-        //jump
-        velocityY = -6;
+        //saltar
+        velocidadY = -6;
 
-        //reset game
-        if (gameOver) {
-            bird.y = birdY;
-            pipeArray = [];
-            score = 0;
-            gameOver = false;
+        //reiniciar juego
+        if (finJuego) {
+            nave.y = pos_Y_Nave;
+            arregloTubos = [];
+            puntaje = 0;
+            finJuego = false;
         }
     }
 }
 
-function detectCollision(a, b) {
-    return a.x < b.x + b.width &&   //a's top left corner doesn't reach b's top right corner
-           a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
-           a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
-           a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+function detectarColision(a, b) {
+    return a.x < b.x + b.ancho &&   //la esquina superior izquierda de a no alcanza la esquina superior derecha de b
+           a.x + a.ancho > b.x &&   //la esquina superior derecha de a pasa la esquina superior izquierda de b
+           a.y < b.y + b.alto &&    //la esquina superior izquierda de a no alcanza la esquina inferior izquierda de b
+           a.y + a.alto > b.y;      //la esquina inferior izquierda de a pasa la esquina superior izquierda de b
 }
