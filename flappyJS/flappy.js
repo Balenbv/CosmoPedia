@@ -5,7 +5,7 @@ let altoTablero = 640;
 let contexto;
 
 //nave
-let anchoNave = 34; //relación ancho/alto = 408/228 = 17/12
+let anchoNave = 34; 
 let altoNave = 24;
 let pos_X_Nave = anchoTablero/8;
 let pos_Y_Nave = altoTablero/2;
