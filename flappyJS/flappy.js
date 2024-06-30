@@ -20,7 +20,7 @@ let nave = {
 
 //tubos
 let arregloTubos = [];
-let anchoTubo = 64; //relación ancho/alto = 384/3072 = 1/8
+let anchoTubo = 64;
 let altoTubo = 512;
 let posXTubo = anchoTablero;
 let posYTubo = 0;
@@ -31,7 +31,7 @@ let imgTuboInferior;
 //física
 let velocidadX = -2; //velocidad de movimiento de los tubos hacia la izquierda
 let velocidadY = 0; //velocidad de salto de la nave
-let gravedad = 0.4;
+let gravedad = 0.3;
 
 let finJuego = false;
 let puntaje = 0;
@@ -40,9 +40,8 @@ window.onload = function() {
     tablero = document.getElementById("board");
     tablero.height = altoTablero;
     tablero.width = anchoTablero;
-    contexto = tablero.getContext("2d"); //se utiliza para dibujar en el tablero
+    contexto = tablero.getContext("2d");
 
-    //cargar imágenes
     imgNave = new Image();
     imgNave.src = "./nave.png";
     imgNave.onload = function() {
@@ -56,7 +55,7 @@ window.onload = function() {
     imgTuboInferior.src = "./tuboInferior.png";
 
     requestAnimationFrame(actualizar);
-    setInterval(colocarTubos, 1500); //cada 1.5 segundos
+    setInterval(colocarTubos, 1500);
     document.addEventListener("keydown", moverNave);
 }
 
@@ -84,7 +83,7 @@ function actualizar() {
         contexto.drawImage(tubo.img, tubo.x, tubo.y, tubo.ancho, tubo.alto);
 
         if (!tubo.pasado && nave.x > tubo.x + tubo.ancho) {
-            puntaje += 0.5; //0.5 porque ¡hay 2 tubos! así que 0.5*2 = 1, 1 por cada par de tubos
+            puntaje += 0.5;
             tubo.pasado = true;
         }
 
