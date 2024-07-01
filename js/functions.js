@@ -54,7 +54,7 @@ function validar(event) {
         document.getElementById("email").style = "background-color: rgba(0, 0, 0, 0.5);";
     }
 
-    if(document.getElementById("edad").value == "" || document.getElementById("edad").value < 0 || document.getElementById("edad").value > 120){
+    if(document.getElementById("edad").value == "" || document.getElementById("edad").value < 0 || document.getElementById("edad").value > 120 || isNaN(document.getElementById("edad").value)){
         document.getElementById("edad").style = "background-color:rgb(223, 0, 1, 0.6);";
         esValido = false;
     } else{
