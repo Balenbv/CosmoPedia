@@ -60,6 +60,7 @@ body {
     top: 10%;
     right: 0;
     transition: transform 0.3s ease;
+    border:0px;
 }
 
 #listaIzquierda > ul {
@@ -79,6 +80,12 @@ body {
     position: absolute;
     bottom: 210px;
     width: 100%;
+}
+
+#genero{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    font-family: 'Orbitron', sans-serif;
 }
 
 #imagenes {
