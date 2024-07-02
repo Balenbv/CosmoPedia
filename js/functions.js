@@ -68,7 +68,7 @@ function validar(event) {
         document.getElementById("genero").style = "background-color: rgba(0, 0, 0, 0.5);";
     }
 
-    if(document.getElementById("dni").value.length < 7 || isNaN(document.getElementById("dni").value) ){
+    if(document.getElementById("dni").value.length < 7 || isNaN(document.getElementById("dni").value) || document.getElementById("dni").value < 0){
         document.getElementById("dni").style = "background-color:rgb(223, 0, 1, 0.6);";
         esValido = false;
     } else{
