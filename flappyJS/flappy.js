@@ -155,9 +155,9 @@ function moverNave(e) {
     }
 }
 
-function detectarColision(a, b) {
-    return a.x < b.x + b.ancho &&   //la esquina superior izquierda de a no alcanza la esquina superior derecha de b
-           a.x + a.ancho > b.x &&   //la esquina superior derecha de a pasa la esquina superior izquierda de b
-           a.y < b.y + b.alto &&    //la esquina superior izquierda de a no alcanza la esquina inferior izquierda de b
-           a.y + a.alto > b.y;      //la esquina inferior izquierda de a pasa la esquina superior izquierda de b
+function detectarColision(nave, tubo) {
+    return nave.x < tubo.x + tubo.ancho &&   //la esquina superior izquierda de nave no alcanza la esquina superior derecha de tubo
+           nave.x + nave.ancho > tubo.x &&   //la esquina superior derecha de nave pasa la esquina superior izquierda de tubo
+           nave.y < tubo.y + tubo.alto &&    //la esquina superior izquierda de nave no alcanza la esquina inferior izquierda de tubo
+           nave.y + nave.alto > tubo.y;      //la esquina inferior izquierda de nave pasa la esquina superior izquierda de tubo
 }
