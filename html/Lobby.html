@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -32,30 +32,28 @@
           <div class="containerIframe">
             <p>Mapa interactivo</p>
           <iframe
-            src="https://www.google.com/sky/#latitude=64.74626965314087&longitude=-44.32634998960328&zoom=5&Spitzer=0.00&ChandraXO=0.00&Galex=0.00&IRAS=0.00&WMAP=0.00&Cassini=0.00&slide=1&mI=-1&oI=-1"
-            frameborder="0"></iframe>
+            src="https://www.google.com/sky/#latitude=64.74626965314087&longitude=-44.32634998960328&zoom=5&Spitzer=0.00&ChandraXO=0.00&Galex=0.00&IRAS=0.00&WMAP=0.00&Cassini=0.00&slide=1&mI=-1&oI=-1"></iframe>
           </div>
         </li>
       </ul>
       <div>
         <ul>
           <li>
-            <a href="https://www.instagram.com/valentin_villarb/">Datos de contacto</a>
+            <a href="https://www.linkedin.com/in/valentin-bustos-villar-1b325a2a0/">Contacto</a>
           </li>
-          <li><a href="#registro">registrarse</a></li>
+          <li><a href="#registro">Registrarse</a></li>
         </ul>
       </div>
     </nav>
     <div id="imagenes">
       <a href="/html/pagAgujeroNegro.html">
         <video onmouseover="agujeroNegro(1)" onmouseleave="agujeroNegro(0)" id="videoAgujeroNegro">
-          <source src="/recursos/agujero negro.mp4" type="video/mp4" />
+          <source src="/recursos/agujeroNegro.mp4" type="video/mp4" />
         </video>
       </a>
 
-
       <a href="/html/pagSol.html">
-        <video onmouseover="sol(1)" onmouseleave="sol(0)" id="videoSol">
+        <video onmouseover="sol(1)" onmouseleave="sol(0)" id="videoSol" alt="video del sol">
           <source src="/recursos/sol.mp4">
         </video>
       </a>
@@ -107,10 +105,11 @@
             <td>Genero</td>
             <td>
               <select id="genero" required>
+                <option value="">Seleccionar</option>
                 <option value="hombre">hombre</option>  
                 <option value="mujer">mujer</option>
               </select>
-            </td>
+             </td>
           </tr>
 
           <tr>
@@ -126,8 +125,7 @@
         
       </form>
     </div>
-    <iframe src="/flappyJS/index.html" frameborder="0"></iframe>
+    <iframe src="/flappyJS/index.html"></iframe>
   </div>
 </body>
-
 </html>
