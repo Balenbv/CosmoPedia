@@ -1,14 +1,14 @@
 //tablero
 let tablero;
 let anchoTablero = 360;
-let altoTablero = 640;
+let alturaTablero = 640;
 let contexto;
 
 //nave
 let anchoNave = 34; //relación ancho/alto = 408/228 = 17/12
 let altoNave = 24;
 let pos_X_Nave = anchoTablero/8;
-let pos_Y_Nave = altoTablero/2;
+let pos_Y_Nave = alturaTablero/2;
 let imgNave;
 
 let nave = {
@@ -38,7 +38,7 @@ let puntaje = 0;
 
 window.onload = function() {
     tablero = document.getElementById("board");
-    tablero.height = altoTablero;
+    tablero.height = alturaTablero;
     tablero.width = anchoTablero;
     contexto = tablero.getContext("2d"); //se utiliza para dibujar en el tablero
 
